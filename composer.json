@@ -1,0 +1,25 @@
+{
+  "name": "jzweb/sdk",
+  "type": "library",
+  "authors": [
+    {
+      "name": "liusongsen",
+      "email": "liusongsen@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.0",
+    "guzzlehttp/guzzle": "~6.0"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0-dev"
+    }
+  },
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "lss\\": "src/"
+    }
+  }
+}
