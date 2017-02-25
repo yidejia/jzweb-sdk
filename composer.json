@@ -1,5 +1,8 @@
 {
   "name": "jzweb/sdk",
+  "description": "The SDK for JingZhuan Web Framework",
+  "keywords": ["jzweb", "sdk", "jzsdk", "framework", "fw"],
+  "homepage": "https://github.com/yidejia/jzweb-sdk",
   "type": "library",
   "authors": [
     {
