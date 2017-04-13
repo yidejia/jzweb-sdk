@@ -23,7 +23,7 @@
   "minimum-stability": "dev",
   "autoload": {
     "psr-4": {
-      "lss\\": "src/"
+      "jzweb\\sdk\\": "src/"
     }
   }
 }
