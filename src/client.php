@@ -140,11 +140,28 @@ class client
             }
         }
         //参数排序 按key字母升序排序
-        ksort($params);
-
+        $params = $this->deepKsort($params);
         $paramsStr = md5(http_build_query($params));
 
         return md5($this->_config['prefix'] . $this->_config['key'] . $this->_config['secret'] . $this->_params['api'] . $this->_ts . $paramsStr);
+    }
+
+
+
+    /**
+     * 多维按key排序
+     * @param $array
+     * @return mixed
+     */
+    private function deepKsort($array)
+    {
+        foreach ($array as $k => $v) {
+            if (is_array($v)) {
+                $array[$k] = $this->deepKsort($v);
+            }
+        }
+        ksort($array);
+        return $array;
     }
 
     /**

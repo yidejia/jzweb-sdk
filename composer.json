@@ -1,7 +1,13 @@
 {
   "name": "jzweb/sdk",
   "description": "The SDK for JingZhuan Web Framework",
-  "keywords": ["jzweb", "sdk", "jzsdk", "framework", "fw"],
+  "keywords": [
+    "jzweb",
+    "sdk",
+    "jzsdk",
+    "framework",
+    "fw"
+  ],
   "homepage": "https://github.com/yidejia/jzweb-sdk",
   "type": "library",
   "authors": [
@@ -10,7 +16,7 @@
       "email": "liusongsen@gmail.com"
     }
   ],
-  "license" : "MIT",
+  "license": "MIT",
   "require": {
     "php": ">=5.5.0",
     "guzzlehttp/guzzle": "~6.0"
