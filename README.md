@@ -41,6 +41,10 @@ $config = array(
         'secret' => 'Your Secret', //您的应用secret 密钥
         'url' => 'http://www.server.com', //API请求地址
         'debug' => false, //是否启用debug模式
+        'headers'=> array(
+             'User-Agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+             'Accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'               
+            )
         );
 $client = new \jzweb\sdk\client($config);
 

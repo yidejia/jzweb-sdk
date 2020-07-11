@@ -3,6 +3,7 @@
  * SDK客户端请求类
  * @author 罗会铸 <yeyupl@qq.com>
  */
+
 namespace jzweb\sdk;
 
 class client
@@ -29,7 +30,11 @@ class client
     public function __construct(array $config)
     {
         $this->_config = $config;
-        $this->_http = new \GuzzleHttp\Client();
+        $headers = [];
+        if (isset($this->_config['headers'])) {
+            $headers['headers'] = $this->_config['headers'];
+        }
+        $this->_http = new \GuzzleHttp\Client($headers);
     }
 
     /**
@@ -145,7 +150,6 @@ class client
 
         return md5($this->_config['prefix'] . $this->_config['key'] . $this->_config['secret'] . $this->_params['api'] . $this->_ts . $paramsStr);
     }
-
 
 
     /**
