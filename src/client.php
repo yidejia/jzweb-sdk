@@ -18,6 +18,7 @@ class client
 
     /**
      * client constructor.
+     *
      * @param array $config
      * $config = array(
      *   'key' => 'apiKey', //您的应用key
@@ -26,15 +27,20 @@ class client
      *   'url' => 'http://oa.jingzhuan.cn/server/', //API请求地址
      *   'debug' => false, //是否启用debug模式
      *  );
+     * @param \GuzzleHttp\Client  $httpClient
      */
-    public function __construct(array $config)
+    public function __construct(array $config, $httpClient = null)
     {
         $this->_config = $config;
         $headers = [];
         if (isset($this->_config['headers'])) {
             $headers['headers'] = $this->_config['headers'];
         }
-        $this->_http = new \GuzzleHttp\Client($headers);
+        if(empty($httpClient) || !($httpClient instanceof \GuzzleHttp\Client)){
+            $httpClient = new \GuzzleHttp\Client($headers);
+        }
+        $this->_http = $httpClient;
+
     }
 
     /**
