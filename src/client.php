@@ -93,6 +93,7 @@ class client
      */
     public function setParams($params)
     {
+
         if (is_array($params)) {
             $this->_params = array_merge($this->_params, $params);
         }
