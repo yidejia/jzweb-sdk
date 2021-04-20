@@ -93,6 +93,7 @@ class client
      */
     public function setParams($params)
     {
+
         if (is_array($params)) {
             $this->_params = array_merge($this->_params, $params);
         }
@@ -150,6 +151,9 @@ class client
                 $params[$key] = $val;
             }
         }
+        // 参数需要做去空格和转义,与平台验签端保持一致
+        $params = $this->filterGPC($params);
+
         //参数排序 按key字母升序排序
         $params = $this->deepKsort($params);
         $paramsStr = md5(http_build_query($params));
@@ -192,6 +196,22 @@ class client
     {
         $this->send('post');
         return $this->_data;
+    }
+
+    /**
+     * 过滤GPC数据
+     * @param $value
+     * @return array|string
+     */
+    public function filterGPC($value) {
+        if (is_array($value)) {
+            foreach ($value as $key => $val) {
+                $value[$key] = $this->filterGPC($val);
+            }
+        } else {
+            $value = addslashes(trim($value));
+        }
+        return $value;
     }
 
 }
